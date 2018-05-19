@@ -1,0 +1,38 @@
+.custFaceing {
+  background-image: url("../images/greyboards.jpg");
+}
+.heading {
+  font-size: 60px;
+}
+.well{
+  border-radius: 10px;
+}
+.admin{
+  background-color: black;
+}
+select {
+  width: 200px;
+  border-radius: 5px;
+  height: 30px;
+}
+.ticket_contianer{
+  padding: 5px;
+}
+.heading2 {
+  color: white;
+  font-size: 60px;
+}
+.ticketlable {
+  border: none;
+  border-width: 0;
+  background-color: transparent;
+  border-color: transparent;
+  margin: 0;
+}
+.well2 {
+  background-color: transparent;
+}
+table {
+  background-color: white;
+  border-radius: 5px;
+}
