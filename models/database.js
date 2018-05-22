@@ -141,27 +141,27 @@ module.exports = function (sequelize, DataTypes) {
 
 
 
-connection.sync().then(function () {
-  // Update tables
-  Tenant.create({
-    firstName: __POST.firstName,
-    lastName: ,
-    phoneNumber: ,
-    email: ,
-    password: ,
-    state: ,
-    zipCode: ,
-    city: ,
-    property: ,
-    unit: ,
-    isTenant: 
-    });
+// connection.sync().then(function () {
+//   // Update tables
+//   Tenant.create({
+//     firstName: __POST.firstName,
+//     lastName: ,
+//     phoneNumber: ,
+//     email: ,
+//     password: ,
+//     state: ,
+//     zipCode: ,
+//     city: ,
+//     property: ,
+//     unit: ,
+//     isTenant: 
+//     });
 
-  Ticket.create({
-    tenantID: ,
-    issue: ,
-    comments: ,
-    status:  
-    });
+//   Ticket.create({
+//     tenantID: ,
+//     issue: ,
+//     comments: ,
+//     status:  
+//     });
 
-});
+// });
