@@ -1,7 +1,6 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const reqLogger = require('morgan');
-const middleware = require('middleware');
 const Sequelize = require('sequelize');
 
 
@@ -18,12 +17,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
-app.use(express.static("."));
+app.use(express.static("./public"));
 
 // Import routes and give the server access to them.
 require("./routes/admin_routes.js")(app);
-require("./routes/tenant_routes.js")(app);
+require("./routes/ticket_routes.js")(app);
 require("./routes/html_routes.js")(app)
+require("./routes/tenant_routes.js")(app)
 
 // Start our server so that it can begin listening to client requests.
 db.sequelize.sync({ force: true }).then(function() {
