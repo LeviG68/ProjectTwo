@@ -1,43 +1,43 @@
-var statusOptions = {
-  "open": "Open",
-  "acknowledge": "Acknowledge",
-  "inprogress" : "Inprogress",
-  "closed": "Closed"
-}
+// var statusOptions = {
+//   "open": "Open",
+//   "acknowledge": "Acknowledge",
+//   "inprogress" : "Inprogress",
+//   "closed": "Closed"
+// }
 
 
-var statusSelect = $('<select/>');
+// var statusSelect = $('<select/>');
 
-for(var val in statusOptions) {
-  $('<option/>', {value: val, text: statusOptions[val]}).appendTo(statusSelect);
-}
+// for(var val in statusOptions) {
+//   $('<option/>', {value: val, text: statusOptions[val]}).appendTo(statusSelect);
+// }
 
-statusSelect.appendTo("#statusOptions");
+// statusSelect.appendTo("#statusOptions");
 
-// this is a temp var for demonstration purposes, will not be required for final product 
+// // this is a temp var for demonstration purposes, will not be required for final product 
 
-var statusSelect2 = $('<select/>');
+// var statusSelect2 = $('<select/>');
 
-for(var val in statusOptions) {
-  $('<option/>', {value: val, text: statusOptions[val]}).appendTo(statusSelect2);
-}
+// for(var val in statusOptions) {
+//   $('<option/>', {value: val, text: statusOptions[val]}).appendTo(statusSelect2);
+// }
 
-statusSelect2.appendTo("#statusOptions2");
+// statusSelect2.appendTo("#statusOptions2");
 
-///++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+// ///++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-var categoryOptions = {
-  "electrical": "Electrical",
-  "plumbing": "Plumbing",
-  "cosmetic" : "Cosmetic",
-  "door": "Door"
-}
+// var categoryOptions = {
+//   "electrical": "Electrical",
+//   "plumbing": "Plumbing",
+//   "cosmetic" : "Cosmetic",
+//   "door": "Door"
+// }
 
 
-var statusCatSelect = $('<select/>');
+// var statusCatSelect = $('<select/>');
 
-for(var vaule in categoryOptions) {
-  $('<option/>', {value: vaule, text: categoryOptions[vaule]}).appendTo(statusCatSelect);
-}
+// for(var vaule in categoryOptions) {
+//   $('<option/>', {value: vaule, text: categoryOptions[vaule]}).appendTo(statusCatSelect);
+// }
 
-statusCatSelect.appendTo('#categoryOptions');
+// statusCatSelect.appendTo('#categoryOptions');
