@@ -1,14 +1,14 @@
 var Nightmare = require("nightmare");
 var expect = require("chai").expect;
 
-describe("PM-HQ", function () {
+describe("PM-HQ Admin", function () {
   // Extending timeout to 10 seconds 
 
   this.timeout(10000);
   it("should send user to the login page", function (done) {
     Nightmare({ show: true })
       // .goto("localhost:8080")
-      .type("#logInEmail", "Temp")
+      .type("#logInEmail", "admin@admin.com")
       .type("#pwd", "Password")
       .click("#logIn")
 
@@ -22,8 +22,8 @@ describe("PM-HQ", function () {
         return tickets.count();
       })
       // Asset the title is as expected
-      .then(function (title) {
-        expect(title).to.equal("Catalog | Codecademy");
+      .then(function (count) {
+        expect(count).to.equal("2");
         done();
       });
   });
