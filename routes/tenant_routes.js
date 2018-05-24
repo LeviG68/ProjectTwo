@@ -1,8 +1,11 @@
 var db = require("../models");
 
+var passport = require("../config/passport");
+
 module.exports = function(app) {
     
     app.get("/api/tenantTix", function(req, res) {
+        console.log("it works");
 
         db.Ticket.findAll({
             where: {

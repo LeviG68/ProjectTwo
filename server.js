@@ -1,8 +1,9 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const reqLogger = require('morgan');
-const middleware = require('middleware');
 
+// Requiring passport as we've configured it (levi added)
+var passport = require("./config/middleware/passport");
 
 var app = express();
 var PORT = process.env.PORT || 8080;
@@ -17,7 +18,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // parse application/json
 app.use(bodyParser.json());
 
+// might need this setup for running passport (levi added)
+// app.use(express.static("public"));
 app.use(express.static("."));
+
+// passport info (levi added)
+// We need to use sessions to keep track of our user's login status
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
 
 // Import routes and give the server access to them.
 require("./routes/admin_routes")(app);
