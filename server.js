@@ -1,11 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const reqLogger = require('morgan');
-<<<<<<< HEAD
-=======
-const middleware = require('middleware');
 const Sequelize = require('sequelize');
->>>>>>> 7fc7961e27d1c7ebb7139300921f6cf0c74193ef
 
 // Requiring passport as we've configured it (levi added)
 var passport = require("./config/middleware/passport");
@@ -29,7 +25,7 @@ app.use(express.static("."));
 
 // passport info (levi added)
 // We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+// app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
 app.use(passport.initialize());
 app.use(passport.session());
 
