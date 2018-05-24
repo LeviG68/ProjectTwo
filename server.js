@@ -1,6 +1,11 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const reqLogger = require('morgan');
+<<<<<<< HEAD
+=======
+const middleware = require('middleware');
+const Sequelize = require('sequelize');
+>>>>>>> 7fc7961e27d1c7ebb7139300921f6cf0c74193ef
 
 // Requiring passport as we've configured it (levi added)
 var passport = require("./config/middleware/passport");
@@ -29,8 +34,9 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 // Import routes and give the server access to them.
-require("./routes/admin_routes")(app);
-require("./routes/tenant_routes")(app);
+require("./routes/admin_routes.js")(app);
+require("./routes/tenant_routes.js")(app);
+require("./routes/html_routes.js")(app)
 
 // Start our server so that it can begin listening to client requests.
 db.sequelize.sync({ force: true }).then(function() {
