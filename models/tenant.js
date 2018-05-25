@@ -1,3 +1,5 @@
+var bcrypt = require("bcrypt-nodejs");
+
 module.exports = function (sequelize, DataTypes) {
     var Tenant = sequelize.define("Tenant", {
   
@@ -69,10 +71,10 @@ module.exports = function (sequelize, DataTypes) {
       },
   
       // Address: property. String, can't be null
-      property: {
-        type: DataTypes.STRING,
-        allowNull: false
-      },
+      // property: {
+      //   type: DataTypes.STRING,
+      //   allowNull: false
+      // },
   
       // Address: unit. String, can be null
       unit: {
@@ -88,6 +90,19 @@ module.exports = function (sequelize, DataTypes) {
   
       // Time stamp: disable
     });
-  
+
+    Tenant.associate = function(models) {
+      Tenant.hasMany(models.Ticket);
+    }
+    
+    // Creating a custom method for our User model. This will check if an unhashed password entered by the user can be compared to the hashed password stored in our database
+  Tenant.prototype.validPassword = function(password) {
+    return bcrypt.compareSync(password, this.password);
+  };
+  // Hooks are automatic methods that run during various phases of the Tenant Model lifecycle
+  // In this case, before a Tenant is created, we will automatically hash their password
+  Tenant.hook("beforeCreate", function(tenant) {
+    tenant.password = bcrypt.hashSync(tenant.password, bcrypt.genSaltSync(10), null);
+  });
     return Tenant;
   }
