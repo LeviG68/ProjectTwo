@@ -4,19 +4,19 @@ module.exports = function (sequelize, DataTypes) {
     var Ticket = sequelize.define("Ticket", {
   
       // Tenant's ID. Integer, can't be null
-      tenantId: {
-        type: DataTypes.INTEGER,
-        allowNull: false
-      },
+      // tenantId: {
+      //   type: DataTypes.INTEGER,
+      //   allowNull: false
+      // },
   
       // Issue reported. String, can't be null
-      issue: {
+      category: {
         type: DataTypes.STRING,
         allowNull: false
       },
   
       // Comments. Text, can be null
-      comments: {
+      comment: {
         type: DataTypes.TEXT,
         allowNull: true
       },
@@ -28,6 +28,10 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'Open'
       }
     });
+
+    Ticket.associate = function(models) {
+      Ticket.belongsTo(models.Tenant);
+    }
   
     return Ticket;
   }

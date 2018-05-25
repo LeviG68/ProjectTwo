@@ -1,48 +1,46 @@
 var db = require("../models");
+var passport = require("../config/passport");
 
+// CLient
 
+// Do Something (passport.authenticate('local'))
 
-var passport = require("../config/middleware/passport");
+// (req, res, next) => next
+
+// Controller
 
 module.exports = function(app) {
-    
-    app.get("/api/tenantTix", function(req, res) {
 
-
-        db.Ticket.findAll({
-            where: {
-                tenantId: req.body.registeredEmail,
-                [Op.not]: [
-                    {status: req.body.status.closed}
-                ]
-            },
-            include: [db.Ticket]
-        }).then(function(dbTenantTix) {
-            res.json(dbTenantTix)
-        })
+    app.post('/api/login', passport.authenticate('local'), (req, res) => {
+        console.log('ROUTE HIT');
+        res.json("/ticket");
     });
 
-    app.post("/api/tenantTix", (req, res) => {
-        console.log('Hello?');
-        const newTenant = {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            registeredEmail: req.body.email,
-            password: req.body.registerPsw,
-            phoneNumber: req.body.phone,
-            street: req.body.street,
-            unit: req.body.unit,
-            city: req.body.city,
-            state: req.body.state,
-            zipCode: req.body.zipCode,
-        };
-        db.Tenant.create(newTenant)
-            .then(dbTenantTix => {
-                console.log(dbTenantTix);
-                res.redirect(dbTenantTix);
+    //     db.Ticket.findAll({
+    //         where: {
+    //             tenantId: req.body.registeredEmail,
+    //             [Op.not]: [
+    //                 {status: req.body.status.closed}
+    //             ]
+    //         },
+    //         include: [db.Ticket]
+    //     }).then(function(dbTenantTix) {
+    //         res.json(dbTenantTix)
+    //     })
+    // });
+
+    app.post("/api/tenant", function(req, res) {
+        db.Tenant.create(req.body)
+            .then(function(dbTenant) {
+                // res.json(dbTenant);
+                console.log("This is the req.body in the tenant_routes: " + req.body);
+                req.login(dbTenant, function(err) {
+                    if (err) { return next(err); }
+                    return res.status(201).json({});
+                  });
             })
             .catch(error => {
-                console.log(error);
+
             });
       });
 

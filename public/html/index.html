@@ -5,7 +5,7 @@
   <title>LogIn</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <link rel="stylesheet" type="text/css" href="public/css/style.css">
+  <link rel="stylesheet" type="text/css" href="css/style.css">
   <script src="https://code.jquery.com/jquery.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -20,8 +20,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Register</div>
                     <div class="panel-body">
-
-                        <form action="/api/tenantTix" method="POST">
+                        <form id="createTenant">
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
@@ -92,7 +91,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <input type="submit" class="btn btn-secondary" name="register" id="register" value="Submit" />
+                            <button type="submit" class="btn btn-secondary" name="register">Submit</button>
                         </form>
 
                     </div>
@@ -102,7 +101,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">Login</div>
                     <div class="panel-body">
-                        <form>
+                        <form id="loginTenant">
                             <div class="form-group">
                                 <label for="logInEmail">Email Address</label>
                                 <input type="email" name="logInEmail" class="form-control" id="logInEmail">
@@ -111,7 +110,7 @@
                                 <label for="pwd">Password</label>
                                 <input type="password" name="pwd" class="form-control" id="pwd">
                             </div>
-                            <button type="submit" name="logIn" class="btn btn-secondary" id="logIn">LogIn</button>
+                            <button type="submit" name="logIn" class="btn btn-secondary" id="login">LogIn</button>
                         </form>
                     </div>
                 </div>
@@ -119,5 +118,8 @@
         </div>
     </div>
   </div>
+  <script type="text/javascript" src="../js/tenant.js"></script>
+  
 </body>
+
 </html>

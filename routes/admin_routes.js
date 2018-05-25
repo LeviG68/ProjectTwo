@@ -1,7 +1,7 @@
 var db = require("../models");
 
 // added for passport (levi added)
-var passport = require("../config/middleware/passport");
+var passport = require("../config/passport");
 
 module.exports = function(app) {
 
