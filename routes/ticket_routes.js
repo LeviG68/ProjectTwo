@@ -1,4 +1,5 @@
 var db = require("../models");
+const Op = require('sequelize').Op;
 
 module.exports = function(app) {
     
@@ -6,19 +7,18 @@ module.exports = function(app) {
 
         db.Ticket.findAll({
             where: {
-                tenantId: req.body.registeredEmail,
+                TenantId: req.user.id,
                 [Op.not]: [
-                    {status: req.body.status.closed}
+                    {status: 'Closed'}
                 ]
-            },
-            include: [db.Ticket]
+            }
         }).then(function(dbTenantTix) {
             res.json(dbTenantTix)
         })
     });
 
     app.post("/api/tenantTicket", function(req, res) {
-        db.Ticket.create(req.body).then(function(dbTenantTix) {
+        db.Ticket.create(req.body, {include: {model: db.Tenant}}).then(function(dbTenantTix) {
           res.json(dbTenantTix);
           console.log("This is the req.body in the ticket_routes: " + req.body)
         });

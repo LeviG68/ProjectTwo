@@ -5,6 +5,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
+var isAuthenticated = require('../config/middleware/isAuthenticated');
 
 // Routes
 // =============================================================
@@ -19,13 +20,17 @@ module.exports = function(app) {
   });
 
 
-  app.get("/ticket", function(req, res) {
+  app.get("/ticket", isAuthenticated, function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/ticketForm.html"));
   });
 
  
   app.get("/admin", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/html/adminPage.html"));
+  });
+
+  app.get('/protected',isAuthenticated, function(req, res) {
+    res.sendFile(path.join(__dirname, '../public/html/protected.html'));
   });
 
 };

@@ -1,4 +1,7 @@
-$("#createTenant").on("submit", createTenantFormSubmit);
+$(document).ready(function() {
+  $("#createTenant").on("submit", createTenantFormSubmit);
+$("#login").on("click", login);
+// var login = $('#loginTenant').on('submit', tenantLogIn);
 
 
 function createTenantFormSubmit(event) {
@@ -18,12 +21,49 @@ function createTenantFormSubmit(event) {
         
              
     });
-    console.log("*******This works at line 15 in createTicket.js*********") 
+    console.log("*******This works at line 15 in createTicket.js*********");
   }
+
+  
+
+  function login(event) {
+    event.preventDefault();
+    console.log("login ran");
+    var loginObject = {
+      registeredEmail: $('#logInEmail').val().trim(),
+      password: $('#pwd').val().trim(),
+    }
+    $.post("/api/login", {email: loginObject.registeredEmail, password: loginObject.password})
+    .then(function(data) {
+      window.location.replace("/ticket");
+    })
+  }
+
+  // function tenantLogIn(event) {
+  //   console.log('Loging in');
+  //   event.preventDefault();
+  //   logTenantIn({
+  //     registeredEmail: $('#logInEmail').val().trim(),
+  //     password: $('#pwd').val().trim(),
+  //   });
+  //   console.log(logTenantIn)
+  //   return logTenantIn;
+  // }
+
+  // function logTenantIn(tenantData) {
+  //   $.post('/api/login', tenantData, function(data) {
+  //     console.log("api routes ran");
+  //     // window.location.replace('/ticket');
+  //   }).then(function(data) {
+  //     window.location.replace('/ticket');
+  //   })
+  // }
 
   // A function for creating an author. Calls getAuthors upon completion
   function createTenant(tenantData) {
-    $.post("/api/tenant", tenantData)
-      .then(tenantData);
-    console.log("This is the ticketData in the createTenant.js: " + tenantData);
+    $.post("/api/tenant", tenantData, function(data) {
+      window.location.replace('/ticket');
+    });
   }
+});
+

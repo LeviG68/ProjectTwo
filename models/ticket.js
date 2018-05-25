@@ -28,6 +28,10 @@ module.exports = function (sequelize, DataTypes) {
         defaultValue: 'Open'
       }
     });
+
+    Ticket.associate = function(models) {
+      Ticket.belongsTo(models.Tenant);
+    }
   
     return Ticket;
   }
