@@ -21,7 +21,7 @@ describe("PM-HQ Tennant", function () {
   })
   it("should allow a logged in tennant to submit a ticket", function (maketix) {
     evaluateLogin()
-      .type("#ticketName", "Temp@temp.com")
+      .type("#ticketName", "temp@temp.com")
       .type("#ticketDescription", "Password")
       .screenshot()
       .click('#submit')

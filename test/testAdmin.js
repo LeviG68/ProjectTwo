@@ -6,8 +6,13 @@ describe("PM-HQ Admin", function () {
 
   this.timeout(10000);
   it("should send user to the login page", function (done) {
-    Nightmare({ show: true })
-      // .goto("localhost:8080")
+    Nightmare({ 
+      show: true,
+      webPreferences: {
+        devTools: true
+      }
+    })
+      .goto("http://localhost:8080")
       .type("#logInEmail", "admin@admin.com")
       .type("#pwd", "Password")
       .click("#logIn")

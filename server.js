@@ -1,7 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const reqLogger = require('morgan');
-const middleware = require('middleware');
+// const middleware = require('middleware');
 const Sequelize = require('sequelize');
 
 
