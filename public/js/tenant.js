@@ -1,8 +1,9 @@
 $(document).ready(function() {
-  $("#createTenant").on("submit", createTenantFormSubmit);
-$("#login").on("click", login);
-// var login = $('#loginTenant').on('submit', tenantLogIn);
 
+  $("#createTenant").on("submit", createTenantFormSubmit);
+  
+
+// var login = $('#loginTenant').on('submit', tenantLogIn)
 
 function createTenantFormSubmit(event) {
     event.preventDefault();
@@ -18,46 +19,9 @@ function createTenantFormSubmit(event) {
         zipCode: $("#zipCode").val().trim(),
         city: $("#city").val().trim(),
         unit: $("#unit").val().trim(),
-        
-             
     });
     console.log("*******This works at line 15 in createTicket.js*********");
   }
-
-  
-
-  function login(event) {
-    event.preventDefault();
-    console.log("login ran");
-    var loginObject = {
-      registeredEmail: $('#logInEmail').val().trim(),
-      password: $('#pwd').val().trim(),
-    }
-    $.post("/api/login", {email: loginObject.registeredEmail, password: loginObject.password})
-    .then(function(data) {
-      window.location.replace("/ticket");
-    })
-  }
-
-  // function tenantLogIn(event) {
-  //   console.log('Loging in');
-  //   event.preventDefault();
-  //   logTenantIn({
-  //     registeredEmail: $('#logInEmail').val().trim(),
-  //     password: $('#pwd').val().trim(),
-  //   });
-  //   console.log(logTenantIn)
-  //   return logTenantIn;
-  // }
-
-  // function logTenantIn(tenantData) {
-  //   $.post('/api/login', tenantData, function(data) {
-  //     console.log("api routes ran");
-  //     // window.location.replace('/ticket');
-  //   }).then(function(data) {
-  //     window.location.replace('/ticket');
-  //   })
-  // }
 
   // A function for creating an author. Calls getAuthors upon completion
   function createTenant(tenantData) {
@@ -65,5 +29,6 @@ function createTenantFormSubmit(event) {
       window.location.replace('/ticket');
     });
   }
+
 });
 
