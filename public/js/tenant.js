@@ -43,20 +43,6 @@ $(document).ready(function () {
       })
   }
 
-  var ensureLoggedIn = require('connect-ensure-login').ensureLoggedIn;
-
-  // var requiresAdmin = function () {
-  //   return [
-  //     ensureLoggedIn('/admin'),
-  //     function (req, res, next) {
-  //       if (req.user && req.user.isTenant === true)
-  //         next();
-  //       else
-  //         res.send(401, 'Unauthorized');
-  //     }
-  //   ]
-  // };
-
   // function tenantLogIn(event) {
   //   console.log('Loging in');
   //   event.preventDefault();
