@@ -5,26 +5,28 @@ describe("PM-HQ Admin", function () {
   // Extending timeout to 10 seconds 
 
   this.timeout(10000);
-  it("should send user to the login page", function (done) {
-    Nightmare({ show: true })
-      // .goto("localhost:8080")
+  it("should log in the user and send to the ticket management page", function (done) {
+    Nightmare({ 
+      show: true,
+      // openDevTools: {detach: true }
+    })
+      .goto("http://localhost:8080")
       .type("#logInEmail", "admin@admin.com")
       .type("#pwd", "Password")
-      .click("#logIn")
-
-      .evaluate(function () {
+      .click("#login")
+      .wait(5000)
+      .evaluate(() => {
         return document.title;
-        var tickets = [];
-        $(".well").each(function () {
-          var ticket = $("#ticknumber");
-          tickNum.push(ticket);
-        });
-        return tickets.count();
       })
-      // Asset the title is as expected
-      .then(function (count) {
-        expect(count).to.equal("2");
-        done();
-      });
+      // .screenshot()
+      .then(function(title){
+        // test passes
+        expect(title).to.equal("Manage Ticket");
+        done()
+      })
+      // .catch((err)=>{
+      //   test fail
+      // })
+    // done()
   });
 });
