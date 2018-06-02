@@ -12,71 +12,19 @@
 <body class="admin">
   <div class="container">
         <h1 class="heading2"> Manage Tickets</h1>
-    <div class="well">
-        <div class="ticket_contianer">
-            <div class="row">
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label for="ticknumber">Ticket Number: </label><p id="ticknumber" class="form-control ticketlable">  1</p>
-                        <label for="dateSubmited">Date Submited: </label><p id="dateSubmited"  class="form-control ticketlable">  1/12/18</p>
-                        <label for="category">Category: </label><p id="category"  class="form-control ticketlable">  Electrical</p>
-                        <label for="status">Current Status: </label><p id="status"  class="form-control ticketlable">  In Progress</p>
-                    </div>
-                </form>
-            </div>
-            <div class="row"> 
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label for="name">Name: </label><p id="name" class="form-control ticketlable">Bob Jones</p>
-                        <label for="phone">Phone: </label><p id="phone"  class="form-control ticketlable">12325646789</p>
-                        <label for="email">Email: </label><p id="email"  class="form-control ticketlable">customer@gmail.com</p>
-                        <label for="address">Address: </label><p id="address"  class="form-control ticketlable">Address: 1234 Street, Denver, Co, 80249 | Unit 12</p>
-                    </div>
-                </form>
-            </div>
-            <div class="row">
-                <div class="panel panel-default">
-                    <div class="panel-body" id="">I’m the best thing that ever happened to placeholder text. We have so many things that we have to do better... and certainly ipsum is one of them. I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively. I will write some great, great text on your website’s Southern border, and I will make Google pay for that text. Mark my words. My placeholder text,min I think, is going to end up being very good with women.</div>
-                </div>
-                <label for="statusOptions">Change Status</label> 
-                <div id="statusOptions" name="statusOptions"></div><br>
-                <button type="submit" name="submitStatusChange" class="btn btn-secondary">Submit</button>
-            </div>
+        <div>
+        </div>        
+        <div class="well">
+            <table class="table table-hover table-dark">
+                <thead id="ticketHead">
+                   
+                </thead>
+                <tbody id="displayTix">
+                    <!-- <div id="ticketList"></div> -->
+                </tbody>
+            </table>
         </div>
-    </div>
-    <div class="well">
-        <div class="ticket_contianer">
-            <div class="row">
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label for="ticknumber">Ticket Number: </label><p id="ticknumber" class="form-control ticketlable">  2</p>
-                        <label for="dateSubmited">Date Submited: </label><p id="dateSubmited"  class="form-control ticketlable">  1/15/18</p>
-                        <label for="category">Category: </label><p id="category"  class="form-control ticketlable">  Pluming</p>
-                        <label for="status">Current Status: </label><p id="status"  class="form-control ticketlable">  Open</p>
-                    </div>
-                </form>
-            </div>
-            <div class="row"> 
-                <form class="form-inline">
-                    <div class="form-group">
-                        <label for="name">Name: </label><p id="name" class="form-control ticketlable">Sara Thomas</p>
-                        <label for="phone">Phone: </label><p id="phone"  class="form-control ticketlable">123447846789</p>
-                        <label for="email">Email: </label><p id="email"  class="form-control ticketlable">customer2@gmail.com</p>
-                        <label for="address">Address: </label><p id="address"  class="form-control ticketlable">Address: 1234 Street, Denver, Co, 80249 | Unit 121</p>
-                    </div>
-                </form>
-            </div>
-            <div class="row">
-                <div class="panel panel-default">
-                    <div class="panel-body" id="">I’m the best thing that ever happened to placeholder text. We have so many things that we have to do better... and certainly ipsum is one of them. I will write some great placeholder text – and nobody writes better placeholder text than me, believe me – and I’ll write it very inexpensively..</div>
-                </div>
-                <label for="statusOptions2">Change Status</label>
-                <div id="statusOptions2"></div><br>
-                <button type="submit" class="btn btn-secondary" name="submitStatusChange">Submit</button>
-            </div>
-        </div>
-    </div>   
-  </div>
-  <script type="text/javascript" src="../dropdown.js"></script> 
+  <!-- <script type="text/javascript" src="../dropdown.js"></script>  -->
+  <script type="text/javascript" src="../js/admin.js"></script>
 </body>
 </html>
