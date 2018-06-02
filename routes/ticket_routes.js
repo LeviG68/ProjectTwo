@@ -3,7 +3,7 @@ const Op = require('sequelize').Op;
 
 module.exports = function(app) {
     
-    app.get("/api/tenantTix", function(req, res) {
+    app.get("/api/ticket", function(req, res) {
 
         db.Ticket.findAll({
             where: {
@@ -18,11 +18,12 @@ module.exports = function(app) {
     });
 
     app.post("/api/tenantTicket", function(req, res) {
-        db.Ticket.create(req.body, {include: {model: db.Tenant}}).then(function(dbTenantTix) {
+        let payload = req.body;
+        console.log(payload)
+        payload.TenantId = req.user.id
+        db.Ticket.create(payload).then(function(dbTenantTix) {
           res.json(dbTenantTix);
           console.log("This is the req.body in the ticket_routes: " + req.body)
         });
-      });
-
-
+    });
 };
