@@ -15,6 +15,7 @@ $(document).ready(function () {
       phoneNumber: $("#phone").val().trim(),
       registeredEmail: $("#userName").val().trim(),
       password: $("#registerPsw").val().trim(),
+      street: $("#street").val().trim(),
       state: $("#state").val().trim(),
       zipCode: $("#zipCode").val().trim(),
       city: $("#city").val().trim(),

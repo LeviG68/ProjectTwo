@@ -36,3 +36,22 @@ table {
   background-color: white;
   border-radius: 5px;
 }
+
+.ticketLabel {
+  padding: 20px;
+  /* width: 150px; */
+  color: black;
+}
+
+.commentWidth {
+  padding: 20px;
+  /* width: 300px */
+}
+
+.updateButton  {
+  margin-left: 10px;
+}
+
+.selectMargin {
+  margin-bottom: 10px;
+}

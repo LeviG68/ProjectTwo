@@ -3,6 +3,7 @@ $(document).ready(function() {
     disPlayTicket();
 
         function getTicket(getTicket) {
+          console.log('happening');
             $.get("/api/ticket", function(data) {
             console.log("ticket", data);
             });

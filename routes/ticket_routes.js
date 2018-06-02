@@ -4,6 +4,7 @@ const Op = require('sequelize').Op;
 module.exports = function(app) {
     
     app.get("/api/ticket", function(req, res) {
+        console.log("******This is the req.user.id" + JSON.stringify(req.user.id));
 
         db.Ticket.findAll({
             where: {
