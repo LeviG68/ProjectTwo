@@ -3,6 +3,7 @@ $(document).ready(function () {
   $("#login").on("click", login);
   // var login = $('#loginTenant').on('submit', tenantLogIn);
 
+// var login = $('#loginTenant').on('submit', tenantLogIn)
 
   function createTenantFormSubmit(event) {
     event.preventDefault();

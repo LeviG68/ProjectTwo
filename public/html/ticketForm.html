@@ -16,30 +16,13 @@
             <thead>
                 <tr>
                 <th scope="col">Ticket #</th>
-                <th scope="col">Date Submitted</th>
-                <th scope="col">Category</th>
                 <th scope="col">Status</th>
+                <th scope="col">Comment</th>
+                <th scope="col">Date</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr>
-                    <th scope="row">1</th>
-                    <td>1/12/18</td>
-                    <td>Electrical</td>
-                    <td>In Progress</td>
-                </tr>
-                <tr>
-                    <th scope="row">2</th>
-                    <td>1/15/18</td>
-                    <td>Plumming</td>
-                    <td>Open</td>
-                </tr>
-                <tr>
-                    <th scope="row">3</th>
-                    <td>1/20/18</td>
-                    <td>Cosmetic</td>
-                    <td>Open</td>
-                </tr>
+            <tbody id="ticketList">
+                <!-- <div id="ticketList"></div> -->
             </tbody>
         </table>
     <div class="panel panel-default">
@@ -68,52 +51,52 @@
     </div>
   </div>
   <script type="text/javascript" src="../js/createTicket.js"></script>
+  <script type="text/javascript" src="../js/tenant.js"></script>
+  <script type="text/javascript" src="../js/displayTicket.js"></script>
   <!-- <script type="text/javascript" src="../dropdown.js"></script>  -->
   <script>
-      var statusOptions = {
-  "open": "Open",
-  "acknowledge": "Acknowledge",
-  "inprogress" : "Inprogress",
-  "closed": "Closed"
-}
+        var statusOptions = {
+            "open": "Open",
+            "acknowledge": "Acknowledge",
+            "inprogress" : "Inprogress",
+            "closed": "Closed"
+            }
 
 
-var statusSelect = $('<select/>');
+        var statusSelect = $('<select/>');
 
-for(var val in statusOptions) {
-  $('<option/>', {value: val, text: statusOptions[val]}).appendTo(statusSelect);
-}
+        for(var val in statusOptions) {
+        $('<option/>', {value: val, text: statusOptions[val]}).appendTo(statusSelect);
+        }
 
-statusSelect.appendTo("#statusOptions");
+        statusSelect.appendTo("#statusOptions");
 
-// this is a temp var for demonstration purposes, will not be required for final product 
+        var statusSelect2 = $('<select/>');
 
-var statusSelect2 = $('<select/>');
+        for(var val in statusOptions) {
+        $('<option/>', {value: val, text: statusOptions[val]}).appendTo(statusSelect2);
+        }
 
-for(var val in statusOptions) {
-  $('<option/>', {value: val, text: statusOptions[val]}).appendTo(statusSelect2);
-}
+        statusSelect2.appendTo("#statusOptions2");
 
-statusSelect2.appendTo("#statusOptions2");
+        ///++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
-///++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-
-var categoryOptions = {
-  "electrical": "Electrical",
-  "plumbing": "Plumbing",
-  "cosmetic" : "Cosmetic",
-  "door": "Door"
-}
+        var categoryOptions = {
+        "electrical": "Electrical",
+        "plumbing": "Plumbing",
+        "cosmetic" : "Cosmetic",
+        "door": "Door"
+        }
 
 
-var statusCatSelect = $('<select/>');
+        var statusCatSelect = $('<select/>');
 
-for(var vaule in categoryOptions) {
-  $('<option/>', {value: vaule, text: categoryOptions[vaule]}).appendTo(statusCatSelect);
-}
+        for(var vaule in categoryOptions) {
+        $('<option/>', {value: vaule, text: categoryOptions[vaule]}).appendTo(statusCatSelect);
+        }
 
-statusCatSelect.appendTo('#categoryOptions');
-  
+        statusCatSelect.appendTo('#categoryOptions');
+                
   </script>
   
 </body>
