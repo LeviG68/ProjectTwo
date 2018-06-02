@@ -71,10 +71,10 @@ module.exports = function (sequelize, DataTypes) {
       },
   
       // Address: property. String, can't be null
-      // property: {
-      //   type: DataTypes.STRING,
-      //   allowNull: false
-      // },
+      street: {
+        type: DataTypes.STRING,
+        allowNull: false
+      },
   
       // Address: unit. String, can be null
       unit: {
